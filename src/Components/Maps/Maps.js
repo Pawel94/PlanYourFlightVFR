@@ -58,15 +58,6 @@ const Maps = () => {
     setDistanceALL();
     SepoitsToDraw([]);
   };
-  useEffect(() => {
-    // GET request using fetch inside useEffect React hook
-    fetch("https://danepubliczne.imgw.pl/api/data/synop").then((response) =>
-      // response.json()
-      console.log(response.json())
-    );
-
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
-  }, []);
 
   const AddNewMarker = (e) => {
     let lastMarkerlng, lastMarkerTime, lastMarkerlat;
@@ -158,7 +149,6 @@ const Maps = () => {
                         strokeWeight: 2,
                         icons: [
                           {
-                            // icon: lineSymbol,
                             offset: "0",
                             repeat: "20px",
                           },
@@ -173,28 +163,25 @@ const Maps = () => {
 
           <div class="bg-white rounded-3xl shadow-2xl">
             <div class="m-8 ...">
-              <div class="grid grid-cols-2 gap-4 m-8">
-                <button
-                  class="w-full content-center bg-yellow-700 hover:bg-yellow-800 text-white hover:text-blue-50 font-semibold  py-2 px-4 border border-yellow-900 hover:border-yellow-700 rounded"
-                  onClick={deletePoints}
-                >
-                  DELETE ALL POINTS
-                </button>
-                <button class="w-full content-center bg-yellow-700 hover:bg-yellow-800 text-white hover:text-blue-50 font-semibold  py-2 px-4 border border-yellow-900 hover:border-yellow-700 rounded">
-                  <PDFCreator data={marker} />
-                </button>
-              </div>
+              {marker.length > 0 ? (
+                <div class="grid grid-cols-2 gap-4 m-8">
+                  <button
+                    class="w-full content-center bg-yellow-700 hover:bg-yellow-800 text-white hover:text-blue-50 font-semibold  py-2 px-4 border border-yellow-900 hover:border-yellow-700 rounded"
+                    onClick={deletePoints}
+                  >
+                    Delete points
+                  </button>
+                  <button class="w-full content-center bg-yellow-700 hover:bg-yellow-800 text-white hover:text-blue-50 font-semibold  py-2 px-4 border border-yellow-900 hover:border-yellow-700 rounded">
+                    <PDFCreator data={marker} />
+                  </button>
+                </div>
+              ) : null}
               <DataTable2 props={marker} props2={inputValue} />
             </div>
           </div>
 
           <div class="group col-start-1 col-end-3 bg-white rounded-3xl shadow-2xl">
-            {/* <div class="m-0 opacity-0  group-hover:opacity-100 group-hover:m-8">
-              <FlightData
-                flightdata={(flightData) => setInputValue(flightData)}
-              />
-            </div> */}
-            <div class="m-8 opacity-0  group-hover:opacity-100">
+            <div class="m-8 ">
               <FlightData
                 flightdata={(flightData) => setInputValue(flightData)}
               />

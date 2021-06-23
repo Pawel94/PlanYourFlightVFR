@@ -1,4 +1,8 @@
-import plane from "../../images.png";
+import plane from "../../plane.png";
+import { WiDayCloudy } from "react-icons/wi";
+import { BsFillPersonFill } from "react-icons/bs";
+import { VscHome } from "react-icons/vsc";
+
 const Sidebar = () => {
   return (
     <div class="sticky top-0 z-50 text-white">
@@ -9,14 +13,18 @@ const Sidebar = () => {
             src={plane}
             alt=""
           />
-          <a href="#" class="text-white hover:underline">
-            Home
+          <a href="/" class="text-white hover:text-black">
+            <VscHome class="align-middle inline-block" />
+            <span>Home</span>
           </a>
-          <a href="Weater" class="text-white hover:underline">
-            Weater
+
+          <a href="Weater" class="text-white hover:text-black">
+            <WiDayCloudy class="align-middle inline-block" />
+            <span>Weater</span>
           </a>
-          <a href="#" class="text-white hover:underline">
-            About us
+          <a href="/AboutMe" class="text-white hover:text-black">
+            <BsFillPersonFill class="align-middle inline-block" />
+            <span>About Me</span>
           </a>
         </nav>
       </header>

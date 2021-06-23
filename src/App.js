@@ -11,8 +11,8 @@ const App = () => {
       <Sidebar></Sidebar>
       <Switch>
         <Route exact path="/" component={MapView}></Route>
-        <Route exact path="/mapa" component={MapView}></Route>
-        <Route exact path="/weater" component={ManualView}></Route>
+        <Route path="/mapa" component={MapView}></Route>
+        <Route path="/weater" component={ManualView}></Route>
       </Switch>
 
       <GlobalStyleComponent />
