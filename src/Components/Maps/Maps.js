@@ -134,7 +134,7 @@ const Maps = () => {
         <div class="grid md:grid-cols-2 gap-8 m-15 max-w-15xl m-5 content-center ">
           <div class="bg-white rounded-3xl max-h-full shadow-2xl">
             <div class="flex flex-col max-h-full ">
-              <LoadScript googleMapsApiKey="AIzaSyAR2K7nwWP7HGHaDueClO1Fq5uSNqTRYR4">
+              <LoadScript googleMapsApiKey="">
                 <div class="m-8 ...">
                   <GoogleMap
                     mapContainerStyle={mapStyles}
