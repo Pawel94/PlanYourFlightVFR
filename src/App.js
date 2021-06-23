@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+//import "./App.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ManualView from "../src/views/ManualView";
+import MapView from "../src/views/MapView";
+import Sidebar from "../src/Components/Sidebar/Sidebar";
+import GlobalStyleComponent from "../src/Theme/MainTheme";
+import "./index.css";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Sidebar></Sidebar>
+      <Switch>
+        <Route exact path="/" component={MapView}></Route>
+        <Route exact path="/mapa" component={MapView}></Route>
+        <Route exact path="/weater" component={ManualView}></Route>
+      </Switch>
+
+      <GlobalStyleComponent />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
