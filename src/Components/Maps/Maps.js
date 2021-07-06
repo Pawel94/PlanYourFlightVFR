@@ -4,34 +4,20 @@ import {
   Marker,
   Polyline,
 } from "@react-google-maps/api";
-import {
-  PDFDownloadLink,
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-} from "@react-pdf/renderer";
 
-import React, { useState, useEffect } from "react";
-//import DataTable from "../Table/Table";
+import React, { useState } from "react";
 import { calcCoordinatesToDistance } from "../../Calulations/CalculateDist";
-import Sidebar from "../Sidebar/Sidebar";
 import { Bearing } from "../../Calulations/CalculateBearing";
-import { calculateTime } from "../../Calulations/CalculateTime";
 
 import { crossWind } from "../../Calulations/CalculateCrossWind";
-import DataTable2 from "../Table/Table2";
+import DataWithPoints from "../Table/DataWithPoints";
 import FlightData from "../FlightData/FlightData";
-import { MemoryRouter } from "react-router";
 import PDFCreator from "../PDFcreator/PDFCreator";
-const Maps = () => {
-  const [value, setValue] = useState(null);
 
+const Maps = () => {
   const [marker, Setmarker] = useState([]);
   const [poitsToDraw, SepoitsToDraw] = useState([]);
-  const [distanceAll, setDistanceALL] = useState([]);
-
+  const [distanceSum, setDistanceSum] = useState(0);
   const [inputValue, setInputValue] = useState({
     velocity: 100,
     velocityWind: 2,
@@ -55,7 +41,7 @@ const Maps = () => {
 
   const deletePoints = () => {
     Setmarker([]);
-    setDistanceALL();
+    setDistanceSum();
     SepoitsToDraw([]);
   };
 
@@ -64,7 +50,6 @@ const Maps = () => {
     let bearing = null;
     let distance = 0;
     let lastMarkerDist = null;
-    let distanceAll;
     let time = null;
     let tas = null;
     if (marker.length > 0) {
@@ -87,9 +72,7 @@ const Maps = () => {
         inputValue.velocity -
         crossWind(inputValue.velocityWind, bearing, inputValue.windDirection);
     }
-    console.log("distanceAll" + distanceAll);
-    setDistanceALL((distanceALL) => [...distanceALL, { distance }]);
-    console.log(distanceAll);
+
     Setmarker((marker) => [
       ...marker,
 
@@ -135,8 +118,7 @@ const Maps = () => {
                   >
                     {marker.map((item) => {
                       return (
-                        console.log(item),
-                        (<Marker key={item.name} position={item.location} />)
+                        <Marker key={item.name} position={item.location} />
                       );
                     })}
 
@@ -176,7 +158,7 @@ const Maps = () => {
                   </button>
                 </div>
               ) : null}
-              <DataTable2 props={marker} props2={inputValue} />
+              <DataWithPoints props={marker} props2={inputValue} />
             </div>
           </div>
 

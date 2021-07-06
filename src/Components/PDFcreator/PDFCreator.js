@@ -19,14 +19,6 @@ const styles = StyleSheet.create({
 });
 
 const CreatePDF = ({ data }) => {
-  console.log("data");
-  console.log(data.length);
-
-  console.log(typeof data);
-  data.map((item) => {
-    return console.log(item.distance);
-  });
-
   return (
     <Document>
       <Page size="A4">
