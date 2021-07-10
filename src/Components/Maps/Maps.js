@@ -162,8 +162,8 @@ const Maps = () => {
             </div>
           </div>
 
-          <div class="group col-start-1 col-end-3 bg-white rounded-3xl shadow-2xl">
-            <div class="m-8 ">
+          <div class=" group col-start-1 col-end-3 bg-white rounded-3xl shadow-2xl  ">
+            <div class="m-8  transition duration-500 hover:scale-125 ">
               <FlightData
                 flightdata={(flightData) => setInputValue(flightData)}
               />

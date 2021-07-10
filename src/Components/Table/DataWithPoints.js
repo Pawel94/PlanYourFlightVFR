@@ -29,7 +29,7 @@ function DataWithPoints({ props, props2 }) {
               <th class="border-b-2  ">Nr</th>
               <th class="border-b-2  ">LAT</th>
               <th class="border-b-2  ">LANG</th>
-              <th class="border-b-2   ">Distance</th>
+              <th class="border-b-2 ">Distance</th>
               <th class="border-b-2  ">Bearing</th>
               <th class="border-b-2  ">Tas</th>
               <th class="border-b-2  ">Time</th>
@@ -69,7 +69,6 @@ function DataWithPoints({ props, props2 }) {
                   )}
 
                   <th class="border-b-2 ">{item.time}'</th>
-                  <th class="border-b-2 ">{item.velocity}'</th>
                   <hr></hr>
                 </tr>
               );
@@ -83,7 +82,6 @@ function DataWithPoints({ props, props2 }) {
               <th class="border-b-2  ">-</th>
               <th class="border-b-2  ">-</th>
               <th class="border-b-2  ">{sumValuesTime(props)}'</th>
-              <th class="border-b-2  ">-</th>
             </tr>
           </tbody>
         </table>

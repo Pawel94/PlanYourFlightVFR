@@ -6,7 +6,10 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: { fontWeight: ["hover", "focus"] },
+    extend: {
+      fontWeight: ["hover", "focus"],
+      scale: ["active", "group-hover"],
+    },
   },
   plugins: [],
 };
